@@ -11,5 +11,8 @@
     "angular"
   ],
   "author": "van",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.6.2"
+  }
 }
