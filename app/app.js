@@ -1,7 +1,8 @@
 (function() {
     'use strict';
 
-    var app = angular.module('main', ['ngRoute']);
+    var app = angular.module('main', ['tt-route']);
+
 
     app.directive('myHeader', function() {
         return {
