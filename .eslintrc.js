@@ -12,5 +12,6 @@ module.exports = {
 		"require-jsdoc": 0,
 		"padded-blocks": 0,
 		"prefer-spread": 0,
+		"guard-for-in": 0,
 	}
 };
