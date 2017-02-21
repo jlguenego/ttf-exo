@@ -4,13 +4,13 @@ require('angular-route/angular-route.js');
 require('./tt-route/tt-route.js');
 require('./style.scss');
 
-var app = angular.module('main', ['tt-route']);
+const app = angular.module('main', ['tt-route']);
 
 
 app.run(['$rootScope', '$location', function($rootScope, $location) {
-    $rootScope.isActive = function(url) {
+    $rootScope.isActive = (url) => {
         var path = $location.path();
-        //console.log('path', path);
+        // console.log('path', path);
         return path === url;
     };
 }]);

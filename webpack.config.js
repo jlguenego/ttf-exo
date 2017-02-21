@@ -15,7 +15,7 @@ module.exports = {
 	module: {
 		loaders: [
             {test: /\.scss$/, loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap'])},
-			{test: /\.js$/, loaders: ['ng-annotate']},
+			{test: /\.js$/, loader: 'ng-annotate!babel'},
 			{test: /\.css$/, loader: ExtractTextPlugin.extract(['css?sourceMap'])},
 			// css-loader use file-loader and url-loader to require the fonts.
 			{test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/, loader: 'url?limit=10000&mimetype=application/font-woff'},
