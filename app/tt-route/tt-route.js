@@ -3,7 +3,8 @@
 
     var app = angular.module('tt-route', ['ngRoute']);
 
-    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    app.config(function($routeProvider, $locationProvider) {
+        'ngInject';
         $locationProvider
             .html5Mode(false)
             .hashPrefix('');
@@ -24,6 +25,6 @@
 			.otherwise({
 				redirectTo: '/'
 			});
-    }]);
+    });
 
 })();
