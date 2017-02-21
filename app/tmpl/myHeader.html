@@ -1,8 +1,8 @@
 <ul>
-    <li><a class="active" href="#/">Accueil</a></li>
-    <li><a href="#/products">Produits</a></li>
-    <li><a href="#/services">Services</a></li>
-    <li><a href="#/contact">Contact</a></li>
+    <li><a ng-class="{ active: isActive('/') }" href="#/">Accueil</a></li>
+    <li><a ng-class="{ active: isActive('/products') }" href="#/products">Produits</a></li>
+    <li><a ng-class="{ active: isActive('/services') }" href="#/services">Services</a></li>
+    <li><a ng-class="{ active: isActive('/contact') }" href="#/contact">Contact</a></li>
 </ul>
 <hr />
 
