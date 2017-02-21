@@ -13,6 +13,8 @@
   "author": "van",
   "license": "ISC",
   "dependencies": {
-    "angular": "1.6.2"
+    "angular": "1.6.2",
+    "eslint": "3.16.0",
+    "eslint-config-google": "0.7.1"
   }
 }
