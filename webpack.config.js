@@ -14,6 +14,7 @@ module.exports = {
     ],
 	module: {
 		loaders: [
+            {test: /\.scss$/, loader: ExtractTextPlugin.extract(['css?sourceMap', 'sass?sourceMap'])},
 			{test: /\.js$/, loaders: ['ng-annotate']},
 			{test: /\.css$/, loader: ExtractTextPlugin.extract(['css?sourceMap'])},
 			// css-loader use file-loader and url-loader to require the fonts.

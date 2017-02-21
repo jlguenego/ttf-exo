@@ -1,0 +1,21 @@
+my-header {
+    ul {
+        display: block;
+        >li {
+            display: inline-block;
+            margin: 10px;
+            a {
+                text-decoration: none;
+                background-color: hsla(0, 100%, 90%, 1);
+                padding: 10px;
+                border-radius: 2px;
+            }
+            a:hover {
+                background-color: hsla(0, 100%, 80%, 1);
+            }
+            a.active {
+                background-color: hsla(120, 100%, 80%, 1);
+            }
+        }
+    }
+}
