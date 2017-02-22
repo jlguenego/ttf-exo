@@ -18,6 +18,8 @@ app.use('/app/wpk/', webpackDevMiddleware(compiler, {
     // options
 }));
 
+var webservice = require('./webservices.js');
+app.use('/ws/', webservice);
 
 app.use(express.static('.'));
 app.use(serveIndex('.', {icons: true}));

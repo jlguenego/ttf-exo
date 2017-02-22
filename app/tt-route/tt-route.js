@@ -18,7 +18,8 @@ app.config(function($routeProvider, $locationProvider) {
 			templateUrl: homeTmpl
 		})
 		.when('/products', {
-			templateUrl: productsTmpl
+			templateUrl: productsTmpl,
+			controller: 'ProductCtrl'
 		})
 		.when('/services', {
 			templateUrl: servicesTmpl
@@ -29,4 +30,14 @@ app.config(function($routeProvider, $locationProvider) {
 		.otherwise({
 			redirectTo: '/'
 		});
+});
+
+app.controller('ProductCtrl', function ProductCtrl($scope, $http) {
+	'ngInject';
+	$http.get('/ws/s1').then(function(response) {
+		console.log('response', response);
+		$scope.affichage = response.data;
+	}).catch(function(error) {
+		console.log('error', error);
+	});
 });
