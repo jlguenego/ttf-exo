@@ -32,11 +32,15 @@ app.config(function($routeProvider, $locationProvider) {
 		});
 });
 
-app.controller('ProductCtrl', function ProductCtrl($scope, $http) {
+app.controller('ProductCtrl', function ProductCtrl($scope, $http, $rootScope, $q) {
 	'ngInject';
-	$http.get('/ws/s1').then(function(response) {
+	$q.when('start').then(function() {
+		$rootScope.showSpinner = true;
+		return $http.get('/ws/s1');
+	}).then(function(response) {
 		console.log('response', response);
 		$scope.affichage = response.data;
+		$rootScope.showSpinner = false;
 	}).catch(function(error) {
 		console.log('error', error);
 	});
