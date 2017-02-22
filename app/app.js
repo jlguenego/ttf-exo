@@ -16,22 +16,27 @@ app.run(['$rootScope', '$location', function($rootScope, $location) {
     };
 }]);
 
+var myHeaderTmpl = require('./tmpl/myHeader.html');
 app.directive('myHeader', function() {
     return {
         restrict: 'E',
-        templateUrl: 'tmpl/myHeader.html'
+        templateUrl: myHeaderTmpl
     };
 });
+
+var myBodyTmpl = require('./tmpl/myBody.html');
 app.directive('myBody', function() {
     return {
         restrict: 'E',
-        templateUrl: 'tmpl/myBody.html'
+        templateUrl: myBodyTmpl
     };
 });
+
+var myFooterTmpl = require('./tmpl/myFooter.html');
 app.directive('myFooter', function() {
     return {
         restrict: 'E',
-        templateUrl: 'tmpl/myFooter.html'
+        templateUrl: myFooterTmpl
     };
 });
 

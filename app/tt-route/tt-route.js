@@ -1,30 +1,32 @@
-(function() {
-    'use strict';
+'use strict';
 
-    var app = angular.module('tt-route', ['ngRoute']);
+var app = angular.module('tt-route', ['ngRoute']);
 
-    app.config(function($routeProvider, $locationProvider) {
-        'ngInject';
-        $locationProvider
-            .html5Mode(true)
-            .hashPrefix('');
+var homeTmpl = require('./tmpl/home.html');
+var productsTmpl = require('./tmpl/products.html');
+var servicesTmpl = require('./tmpl/services.html');
+var contactTmpl = require('./tmpl/contact.html');
 
-        $routeProvider
-			.when('/', {
-				templateUrl: 'tt-route/tmpl/home.html'
-			})
-			.when('/products', {
-				templateUrl: 'tt-route/tmpl/products.html'
-			})
-            .when('/services', {
-				templateUrl: 'tt-route/tmpl/services.html'
-			})
-            .when('/contact', {
-				templateUrl: 'tt-route/tmpl/contact.html'
-			})
-			.otherwise({
-				redirectTo: '/'
-			});
-    });
+app.config(function($routeProvider, $locationProvider) {
+	'ngInject';
+	$locationProvider
+		.html5Mode(true)
+		.hashPrefix('');
 
-})();
+	$routeProvider
+		.when('/', {
+			templateUrl: homeTmpl
+		})
+		.when('/products', {
+			templateUrl: productsTmpl
+		})
+		.when('/services', {
+			templateUrl: servicesTmpl
+		})
+		.when('/contact', {
+			templateUrl: contactTmpl
+		})
+		.otherwise({
+			redirectTo: '/'
+		});
+});
