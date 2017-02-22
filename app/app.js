@@ -3,6 +3,7 @@ require('angular/angular.js');
 require('angular-route/angular-route.js');
 require('./tt-route/tt-route.js');
 require('./style.scss');
+require('angular/angular-csp.css');
 
 const app = angular.module('main', ['tt-route']);
 

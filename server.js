@@ -8,7 +8,7 @@ var port = 8000;
 
 // for the short loop dev paradigm: express watches the files and build the bundles when needed.
 
-//webpack
+// webpack
 var webpack = require('webpack');
 var webpackConfig = require('./webpack.config.js');
 webpackConfig.output.path = '/';
@@ -22,6 +22,9 @@ app.use('/app/wpk/', webpackDevMiddleware(compiler, {
 app.use(express.static('.'));
 app.use(serveIndex('.', {icons: true}));
 
+app.all('/app/*', function(req, res, next) {
+	res.sendFile('./app/index.html', {root: __dirname});
+});
 
 app.use(function(req, res, next) {
 	console.log('404: Page not Found', req.url);

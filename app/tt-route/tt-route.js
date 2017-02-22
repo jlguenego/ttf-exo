@@ -6,7 +6,7 @@
     app.config(function($routeProvider, $locationProvider) {
         'ngInject';
         $locationProvider
-            .html5Mode(false)
+            .html5Mode(true)
             .hashPrefix('');
 
         $routeProvider
