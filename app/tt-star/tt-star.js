@@ -2,13 +2,18 @@
 
 var app = angular.module('tt-star', []);
 
-app.directive('ttStar', function() {
+app.directive('ttStar', function($compile) {
+    'ngInject';
     return {
         scope: {
             n: '=note'
         },
         link: function(scope, element, attr) {
             console.log('tt-star link', arguments);
+            scope.update = function(note) {
+                console.log('update', arguments);
+                scope.n = note;
+            };
             scope.$watch('n', function() {
                 var html = '';
                 var note = scope.n;
@@ -17,12 +22,13 @@ app.directive('ttStar', function() {
                 note = (note > 5) ? 5: note;
                 note = (note < 0) ? 0: note;
                 for(var i = 0; i < note; i++) {
-                    html += '<img src="./tt-star/img/yellow_star.png" />';
+                    html += '<img ng-click="update(' + (i+1) + ')" src="./tt-star/img/yellow_star.png" />';
                 }
                 for(var i = note; i < 5; i++) {
-                    html += '<img src="./tt-star/img/white_star.png" />';
+                    html += '<img ng-click="update(' + (i+1) + ')" src="./tt-star/img/white_star.png" />';
                 }
                 element.html(html);
+                $compile(element.contents())(scope);
             });
         }
     };
