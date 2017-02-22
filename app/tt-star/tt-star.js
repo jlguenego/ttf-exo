@@ -8,15 +8,16 @@ app.directive('ttStar', function($compile) {
         scope: {
             n: '=note'
         },
-        link: function(scope, element, attr) {
-            console.log('tt-star link', arguments);
-            scope.update = function(note) {
+        controller: function TtStarCtrl($scope, $element) {
+            'ngInject';
+            console.log('tt-star controller', arguments);
+            $scope.update = function(note) {
                 console.log('update', arguments);
-                scope.n = note;
+                $scope.n = note;
             };
-            scope.$watch('n', function() {
+            $scope.$watch('n', function() {
                 var html = '';
-                var note = scope.n;
+                var note = $scope.n;
                 note = (note === undefined) ? 0: note;
                 note = (isNaN(note)) ? 0: note;
                 note = (note > 5) ? 5: note;
@@ -27,8 +28,8 @@ app.directive('ttStar', function($compile) {
                 for(var i = note; i < 5; i++) {
                     html += '<img ng-click="update(' + (i+1) + ')" src="./tt-star/img/white_star.png" />';
                 }
-                element.html(html);
-                $compile(element.contents())(scope);
+                $element.html(html);
+                $compile($element.contents())($scope);
             });
         }
     };
