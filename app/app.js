@@ -5,8 +5,9 @@ require('./tt-route/tt-route.js');
 require('./style.scss');
 require('angular/angular-csp.css');
 require('angular-spinner');
+require('./tt-star/tt-star.js');
 
-const app = angular.module('main', ['tt-route', 'angularSpinner']);
+const app = angular.module('main', ['tt-route', 'angularSpinner', 'tt-star']);
 
 
 app.run(['$rootScope', '$location', function($rootScope, $location) {
