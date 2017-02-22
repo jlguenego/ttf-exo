@@ -40,6 +40,7 @@ app.controller('ProductCtrl', function ProductCtrl($scope, $http, $rootScope, $q
 	}).then(function(response) {
 		console.log('response', response);
 		$scope.affichage = response.data;
+	}).finally(function() {
 		$rootScope.showSpinner = false;
 	}).catch(function(error) {
 		console.log('error', error);
